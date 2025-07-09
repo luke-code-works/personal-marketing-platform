@@ -5,7 +5,7 @@ on:
         inputs:
             image_tag:
                 description: 'Image tag'
-                default: 'luke-code-works/resume:latest'
+                default: 'luke-code-works/personal-marketing-platform/resume:latest'
 
 jobs:
     build-resume:
@@ -25,7 +25,7 @@ jobs:
               run: npm ci
 
             - name: Build
-              run: npx nx run @luke-code-works/ng-apps-resume:build:production
+              run: npx nx run ng-apps-resume:build:production
 
             - name: Set up buildx
               uses: docker/setup-buildx-action@v3

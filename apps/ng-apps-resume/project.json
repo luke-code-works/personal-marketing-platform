@@ -1,5 +1,5 @@
 {
-    "name": "@luke-code-works/ng-apps-resume",
+    "name": "ng-apps-resume",
     "$schema": "../../node_modules/nx/schemas/project-schema.json",
     "projectType": "application",
     "prefix": "app",
@@ -54,10 +54,10 @@
             "executor": "@angular-devkit/build-angular:dev-server",
             "configurations": {
                 "production": {
-                    "buildTarget": "@luke-code-works/ng-apps-resume:build:production"
+                    "buildTarget": "ng-apps-resume:build:production"
                 },
                 "development": {
-                    "buildTarget": "@luke-code-works/ng-apps-resume:build:development"
+                    "buildTarget": "ng-apps-resume:build:development"
                 }
             },
             "defaultConfiguration": "development",
@@ -66,13 +66,13 @@
         "extract-i18n": {
             "executor": "@angular-devkit/build-angular:extract-i18n",
             "options": {
-                "buildTarget": "@luke-code-works/ng-apps-resume:build"
+                "buildTarget": "ng-apps-resume:build"
             }
         },
         "serve-static": {
             "executor": "@nx/web:file-server",
             "options": {
-                "buildTarget": "@luke-code-works/ng-apps-resume:build",
+                "buildTarget": "ng-apps-resume:build",
                 "staticFilePath": "dist/apps/ng-apps-resume/browser",
                 "spa": true
             }

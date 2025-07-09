@@ -1,5 +1,5 @@
 export default {
-    displayName: '@luke-code-works/ng-apps-resume',
+    displayName: 'ng-apps-resume',
     preset: '../../jest.preset.js',
     setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
     coverageDirectory: '../../coverage/apps/test',
