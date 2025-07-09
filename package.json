@@ -1,10 +1,10 @@
 {
-    "name": "@luke-code-works/public",
+    "name": "personal-marketing-platform",
     "version": "0.0.0",
     "license": "MIT",
     "scripts": {
         "check-format": "nx exec -- prettier --config .prettierrc.json --ignore-path .prettierignore --ignore-unknown --check \"{**/*,*}.{js,ts,html,scss,jsx,tsx,vue,astro,json}\"",
-        "lint": "nx exec -- nx run-many --target=lint --all --exclude=@luke-code-works/public"
+        "lint": "nx exec -- nx run-many --target=lint --all --exclude=personal-marketing-platform"
     },
     "nx": {},
     "private": true,
