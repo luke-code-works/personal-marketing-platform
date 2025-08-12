@@ -1,6 +1,6 @@
 import {Directive, ElementRef, inject, Injector, input, OnInit, runInInjectionContext} from '@angular/core';
 import {rxEffect} from 'ngxtension/rx-effect';
-import {fromEvent, tap, throttleTime} from 'rxjs';
+import {filter, fromEvent, tap, throttleTime} from 'rxjs';
 import {UmamiProxyService} from '../../util/umami/umami-proxy.service';
 
 @Directive({
@@ -19,6 +19,7 @@ export class UmamiTrackEventDirective implements OnInit {
                 rxEffect(
                     fromEvent(this.elementRef.nativeElement, event).pipe(
                         throttleTime(throttleMs ?? 1000),
+                        filter(() => this.umamiProxyService.ready()),
                         tap(() => this.umamiProxyService.track(name, data)),
                     ),
                 );
