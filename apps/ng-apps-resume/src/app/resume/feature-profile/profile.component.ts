@@ -3,7 +3,7 @@ import {MatIconModule} from '@angular/material/icon';
 import {provideTranslocoScope, translateSignal, TranslocoDirective} from '@jsverse/transloco';
 import {rxEffect} from 'ngxtension/rx-effect';
 import {of} from 'rxjs';
-import {GSAPScrollAnimateDirective} from '../../shared/ui/gsap-scroll-animate/gsap-scroll-animate.directive';
+import {AnimateOnScrollDirective} from '../../shared/ui/animate-on-scroll/animate-on-scroll.directive';
 import {HeadingWithDotComponent} from '../../shared/ui/heading-with-dot/heading-with-dot.component';
 import {useRouteFragments$} from '../../shared/util/route-fragment-navigation/route-fragment.functions';
 import {createTranslocoInlineLoader} from '../../shared/util/transloco/transloco-inline-loader-factory';
@@ -22,7 +22,7 @@ const profileTranslocoScope = {
         TranslocoDirective,
         ProfileCoverComponent,
         HeadingWithDotComponent,
-        GSAPScrollAnimateDirective,
+        AnimateOnScrollDirective,
     ],
     providers: [provideTranslocoScope(profileTranslocoScope)],
 })
