@@ -23,14 +23,14 @@
                 class="mt-4"
                 style="font-size: clamp(48px, 10vw, 60px)"
                 app-heading-with-dot
-                appGsapScrollAnimate>
+                appAnimateOnScroll>
                 <span class="gradient">{{ t("cover.greeting") }}</span>
                 <span>&nbsp;</span>
                 <span>{{ t("cover.name") }}</span>
             </h1>
             <div
                 class="flex flex-col gap-y-2 select-none"
-                appGsapScrollAnimate>
+                appAnimateOnScroll>
                 <div class="flex items-center gap-2">
                     <mat-icon class="shrink-0">computer</mat-icon>
                     <span>{{ t("cover.profession") }}</span>
@@ -55,10 +55,11 @@
         </div>
 
         <!-- Profile image -->
-        <div class="flex justify-center items-center mx-auto">
+        <div
+            class="flex justify-center items-center mx-auto"
+            appAnimateOnScroll>
             <picture
                 class="w-72 overflow-hidden border-2 border-[#4a00de] shadow-2xl shadow-[#4a00de]/50 float-animation"
-                appGsapScrollAnimate
                 style="border-radius: 70% 30% 48% 52% / 63% 42% 58% 37%">
                 <img
                     class="select-none"
