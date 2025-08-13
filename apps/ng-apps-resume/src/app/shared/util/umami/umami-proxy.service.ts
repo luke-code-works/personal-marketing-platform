@@ -1,9 +1,42 @@
+import {computed, effect, signal} from '@angular/core';
 import {UmamiError} from './umami-error';
-import {UmamiWindow} from './umami-window.type';
+import {Umami} from './umami-window.type';
 
 export class UmamiProxyService {
+    readonly umami = signal<Umami | undefined>(undefined);
+    readonly ready = computed(() => this.umami() != null);
+
+    private readonly _enabled = signal(localStorage.getItem(umamiDisabledStorageKey) !== '1'); // Enabled by default
+    readonly enabled = this._enabled.asReadonly();
+
+    constructor() {
+        effect(() => {
+            if (!this._enabled()) {
+                localStorage.setItem(umamiDisabledStorageKey, '1');
+            } else {
+                localStorage.removeItem(umamiDisabledStorageKey);
+            }
+        });
+    }
+
+    async enable(reason: 'by-user' | 'include-own-visit') {
+        this.getUmamiOrThrow();
+
+        this._enabled.set(true);
+
+        await this.track('opted-in', {reason});
+    }
+
+    async disable(reason: 'by-user' | 'exclude-own-visit') {
+        this.getUmamiOrThrow();
+
+        await this.track('opted-out', {reason});
+
+        this._enabled.set(false);
+    }
+
     async track(name?: string, data?: object): Promise<unknown> {
-        const umami = getUmami();
+        const umami = this.getUmamiOrThrow();
 
         if (name && data) {
             return umami.track(name, data);
@@ -21,7 +54,7 @@ export class UmamiProxyService {
     }
 
     async identify(uniqueId?: string, data?: object): Promise<unknown> {
-        const umami = getUmami();
+        const umami = this.getUmamiOrThrow();
 
         if (uniqueId && data) {
             return umami.identify(uniqueId, data);
@@ -38,22 +71,15 @@ export class UmamiProxyService {
         throw new UmamiError('Umami identification requires uniqueId or other data.');
     }
 
-    async disableTracking() {
-        const umami = getUmami();
+    private getUmamiOrThrow() {
+        const umami = this.umami();
 
-        umami.track('disabled');
-        localStorage.setItem(umamiDisabledStorageKey, '1');
+        if (!umami) {
+            throw new UmamiError('Umami is not ready. Please ensure it is initialized before use.');
+        }
+
+        return umami;
     }
 }
 
 const umamiDisabledStorageKey = 'umami.disabled';
-
-function getUmami() {
-    if (!window.umami) {
-        throw new UmamiError('Umami is not initialized.');
-    }
-
-    return window.umami;
-}
-
-declare const window: UmamiWindow;

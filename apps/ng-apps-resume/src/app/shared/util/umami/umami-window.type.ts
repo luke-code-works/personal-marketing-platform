@@ -14,7 +14,7 @@ export interface UmamiWindow extends Window {
  *
  * Reference: https://umami.is/docs/tracker-functions
  */
-interface Umami {
+export interface Umami {
     track(): Promise<unknown>;
     track(payload: object): Promise<unknown>;
     track(eventName: string): Promise<unknown>;

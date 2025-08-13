@@ -1,10 +1,12 @@
 import {DOCUMENT, isPlatformBrowser} from '@angular/common';
 import {HttpClient} from '@angular/common/http';
 import {assertInInjectionContext, ErrorHandler, inject, isDevMode, PLATFORM_ID} from '@angular/core';
-import {catchError, map, of, tap} from 'rxjs';
+import {catchError, filter, interval, map, of, switchMap, take, tap, timeout} from 'rxjs';
 import {DOMPurifyTrustedTypeService} from '../trusted-types/dom-purify-trusted-type.service';
 import {UmamiConfig} from './umami-config.type';
 import {UmamiError} from './umami-error';
+import {UmamiProxyService} from './umami-proxy.service';
+import {UmamiWindow} from './umami-window.type';
 
 export function fetchUmamiConfig$(path: string, deps: {httpClient: HttpClient}) {
     // TODO: Replace with zod someday
@@ -29,21 +31,21 @@ export function fetchUmamiConfig$(path: string, deps: {httpClient: HttpClient}) 
 export function appendUmamiScript(
     config: UmamiConfig,
     deps: {document: Document; platformId: object; domPurifyTrustedTypesService: DOMPurifyTrustedTypeService},
-): void {
+): boolean {
     if (!isPlatformBrowser(deps.platformId)) {
         // Not running in browser platform; skip script injection
-        return;
+        return false;
     }
 
     if (config.enabled === false) {
-        // Tracking disabled: skip script injection
-        return;
+        // Umami not enabled: skip script injection
+        return false;
     }
 
     const selector = `script[data-website-id="${config.websiteId}"]`;
     if (deps.document.querySelector(selector)) {
         // Script already present; skip injection
-        return;
+        return false;
     }
 
     if (!deps.document.head) {
@@ -59,26 +61,43 @@ export function appendUmamiScript(
         config.scriptUrl) as unknown as string;
 
     deps.document.head.appendChild(script);
+    return true;
+}
+
+export function waitForUmamiScript$() {
+    return interval(250).pipe(
+        map(() => window.umami),
+        filter((umami) => umami != null),
+        take(1),
+        timeout(30 * 1000),
+        catchError(() => {
+            throw new UmamiError('Umami script did not become available in time.');
+        }),
+    );
 }
 
 export function initializeUmami$() {
     assertInInjectionContext(initializeUmami$);
 
-    const httpClient = inject(HttpClient);
     const document = inject(DOCUMENT);
     const platformId = inject(PLATFORM_ID);
+    const httpClient = inject(HttpClient);
     const errorHandler = inject(ErrorHandler);
+    const umamiProxyService = inject(UmamiProxyService);
     const domPurifyTrustedTypesService = inject(DOMPurifyTrustedTypeService);
 
     const path = `config/umami.config${isDevMode() ? '.dev' : ''}.json`;
 
     return fetchUmamiConfig$(path, {httpClient}).pipe(
-        tap((config) => appendUmamiScript(config, {document, platformId, domPurifyTrustedTypesService})),
+        map((config) => appendUmamiScript(config, {document, platformId, domPurifyTrustedTypesService})),
+        filter((scriptAppended) => scriptAppended),
+        switchMap(waitForUmamiScript$),
+        tap((umami) => umamiProxyService.umami.set(umami)),
         catchError((error) => {
             const handledError =
                 error instanceof UmamiError
                     ? error
-                    : new UmamiError('Umami failed initialization', {originalError: error});
+                    : new UmamiError('Umami initialization failed', {originalError: error});
             errorHandler.handleError(handledError);
 
             // Continue the stream gracefully by emitting null
@@ -86,3 +105,5 @@ export function initializeUmami$() {
         }),
     );
 }
+
+declare const window: UmamiWindow;
