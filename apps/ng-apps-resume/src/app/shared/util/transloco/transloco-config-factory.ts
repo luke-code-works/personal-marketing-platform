@@ -1,14 +1,13 @@
 import {isDevMode} from '@angular/core';
 import {TranslocoConfig, translocoConfig} from '@jsverse/transloco';
 import {MessageformatConfig} from '@jsverse/transloco-messageformat';
-import {PartialTranslocoConfig} from '@jsverse/transloco/lib/transloco.config';
 import {Locale} from './locale';
 
 export const createTranslocoConfigWithDefault = (
     supportedLocales: Locale[],
     defaultLocale: Locale,
     fallbackLocale: Locale,
-    config?: PartialTranslocoConfig,
+    config?: Partial<TranslocoConfig>,
 ): TranslocoConfig =>
     translocoConfig({
         availableLangs: supportedLocales,

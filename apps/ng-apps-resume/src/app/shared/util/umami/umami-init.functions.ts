@@ -1,6 +1,6 @@
-import {DOCUMENT, isPlatformBrowser} from '@angular/common';
+import {isPlatformBrowser} from '@angular/common';
 import {HttpClient} from '@angular/common/http';
-import {assertInInjectionContext, ErrorHandler, inject, isDevMode, PLATFORM_ID} from '@angular/core';
+import {assertInInjectionContext, ErrorHandler, inject, isDevMode, PLATFORM_ID, DOCUMENT} from '@angular/core';
 import {catchError, filter, interval, map, of, switchMap, take, tap, timeout} from 'rxjs';
 import {DOMPurifyTrustedTypeService} from '../trusted-types/dom-purify-trusted-type.service';
 import {UmamiConfig} from './umami-config.type';
