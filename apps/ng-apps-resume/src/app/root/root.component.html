@@ -60,26 +60,30 @@
         class="mt-6 lg:mt-8 mx-2 flex justify-center gap-10"
         role="group"
         [attr.aria-label]="t('footer.social.label')">
-        <app-resume-mail-icon-link
-            class="w-6 h-6"
-            appUmamiTrackEvent
-            [trackEvents]="[{event: 'click', name: 'outbound-mail'}]"
-            [href]="'mailto:' + (t('footer.social.mail.link') | xorCipher)"
-            [label]="t('footer.social.mail.label')" />
-        <app-resume-linkedin-icon-link
-            class="w-6 h-6"
-            appUmamiTrackEvent
-            [trackEvents]="[{event: 'click', name: 'outbound-linkedin'}]"
-            [href]="t('footer.social.linkedin.link') | xorCipher"
-            [label]="t('footer.social.linkedin.label')" />
-        <app-resume-github-icon-link
-            class="w-6 h-6"
-            appUmamiTrackEvent
-            [trackEvents]="[{event: 'click', name: 'outbound-github'}]"
-            [href]="t('footer.social.github.link') | xorCipher"
-            [label]="t('footer.social.github.label')" />
+        @defer {
+            <app-resume-mail-icon-link
+                class="w-6 h-6"
+                appUmamiTrackEvent
+                [trackEvents]="[{event: 'click', name: 'outbound-mail'}]"
+                [href]="'mailto:' + (t('footer.social.mail.link') | xorCipher)"
+                [label]="t('footer.social.mail.label')" />
+            <app-resume-linkedin-icon-link
+                class="w-6 h-6"
+                appUmamiTrackEvent
+                [trackEvents]="[{event: 'click', name: 'outbound-linkedin'}]"
+                [href]="t('footer.social.linkedin.link') | xorCipher"
+                [label]="t('footer.social.linkedin.label')" />
+            <app-resume-github-icon-link
+                class="w-6 h-6"
+                appUmamiTrackEvent
+                [trackEvents]="[{event: 'click', name: 'outbound-github'}]"
+                [href]="t('footer.social.github.link') | xorCipher"
+                [label]="t('footer.social.github.label')" />
+        }
     </div>
-    <app-legal-copyright-notice
-        class="mt-6 lg:mt-8 mb-14 mx-2"
-        appUmamiOptOut />
+    @defer {
+        <app-legal-copyright-notice
+            class="mt-6 lg:mt-8 mb-14 mx-2"
+            appUmamiOptOut />
+    }
 </footer>

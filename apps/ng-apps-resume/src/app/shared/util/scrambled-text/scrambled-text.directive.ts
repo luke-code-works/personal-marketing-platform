@@ -1,7 +1,7 @@
 import {Directive, input, signal} from '@angular/core';
 import {takeUntilDestroyed, toObservable} from '@angular/core/rxjs-interop';
 import {concatMap, delay, lastValueFrom, of, switchMap, tap} from 'rxjs';
-import * as scrambled from 'scrambled-text';
+import {scramble, ScrambleOptions, sequence as scrambleTextSequence} from 'scrambled-text';
 
 @Directive({
     selector: '[appScrambledText]',
@@ -45,7 +45,7 @@ function scrambleSequence$(sequence: ScrambledSequence, setTextFn: (text: string
 }
 
 function generateInitialScrambleSequence(text: string): ScrambledSequence {
-    const options: Partial<scrambled.ScrambleOptions> = {
+    const options: Partial<ScrambleOptions> = {
         characterSet: '@#$%£&*§+_',
         sequential: true,
     };
@@ -55,13 +55,13 @@ function generateInitialScrambleSequence(text: string): ScrambledSequence {
     for (let index = 0; index < text.length; index++) {
         const slicedText = text.slice(0, index + 1);
         sequence.push({
-            text: scrambled.scramble(slicedText, options),
+            text: scramble(slicedText, options),
             delay: 50,
         });
     }
 
     // Decode characters in iterations
-    const decodeSequence = [...new Set(scrambled.sequence(text, text.length, options))].map((x) => ({
+    const decodeSequence = [...new Set(scrambleTextSequence(text, text.length, options))].map((x) => ({
         text: x,
         delay: 50,
     }));
@@ -78,20 +78,20 @@ function generateInitialScrambleSequence(text: string): ScrambledSequence {
 }
 
 function generateRedoScrambleSequence(text: string): ScrambledSequence {
-    const options: Partial<scrambled.ScrambleOptions> = {
+    const options: Partial<ScrambleOptions> = {
         characterSet: '@#$%£&*§+_',
         sequential: true,
     };
     const sequence: ScrambledSequence = [];
 
     // Encode characters in iterations and then decode
-    const encodeSequence = [...new Set(scrambled.sequence(text, text.length, options))]
+    const encodeSequence = [...new Set(scrambleTextSequence(text, text.length, options))]
         .map((x) => ({
             text: x,
             delay: 50,
         }))
         .reverse();
-    const decodeSequence = [...new Set(scrambled.sequence(text, text.length, options))].map((x) => ({
+    const decodeSequence = [...new Set(scrambleTextSequence(text, text.length, options))].map((x) => ({
         text: x,
         delay: 50,
     }));
