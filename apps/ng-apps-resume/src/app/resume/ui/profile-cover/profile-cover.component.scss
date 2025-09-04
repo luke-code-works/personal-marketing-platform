@@ -1,6 +1,6 @@
 :host {
     @reference "tailwindcss";
-    @apply grid grid-cols-1 grid-rows-1 min-h-[calc(100vh-64px)] overflow-hidden;
+    @apply grid grid-cols-1 grid-rows-1 min-h-screen overflow-hidden;
 
     .gradient {
         background-image: linear-gradient(90deg, #51a2ff, #6243ff, #2196f3, #7f22fe, #c27aff);
