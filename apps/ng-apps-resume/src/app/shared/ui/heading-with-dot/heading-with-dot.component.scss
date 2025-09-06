@@ -1,5 +1,6 @@
+@reference "tailwindcss";
+
 :host {
-    @reference "tailwindcss";
     @apply block;
     @apply leading-snug font-(family-name:--app-heading-with-dot-font) text-[var(--app-heading-with-dot-color)];
     @apply select-none;

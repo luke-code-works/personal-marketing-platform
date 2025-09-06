@@ -1,4 +1,5 @@
+@reference "tailwindcss";
+
 :host {
-    @reference "tailwindcss";
     @apply block min-w-2 min-h-2;
 }

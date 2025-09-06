@@ -1,5 +1,6 @@
+@reference "tailwindcss";
+
 :host {
-    @reference "tailwindcss";
     @apply block;
     @apply relative;
 
