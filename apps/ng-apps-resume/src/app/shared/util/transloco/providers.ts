@@ -2,7 +2,6 @@ import {EnvironmentProviders, makeEnvironmentProviders, provideAppInitializer} f
 import {
     provideTransloco,
     provideTranslocoConfig,
-    provideTranslocoLoadingTpl,
     provideTranslocoMissingHandler,
     TranslocoConfig,
 } from '@jsverse/transloco';
@@ -19,7 +18,6 @@ type i18nWithTranslocoOptions = {
     supportedLocales?: Locale[];
     defaultLocale?: Locale;
     fallbackLocale?: Locale;
-    loadingTemplate?: string;
     overridingTranslocoConfig?: TranslocoConfig;
     overridingMessageformatConfig?: MessageformatConfig;
 };
@@ -28,7 +26,6 @@ export function provideI18nUsingTransloco(options?: i18nWithTranslocoOptions): E
     return makeEnvironmentProviders([
         provideTransloco({config: {}}),
         provideTranslocoMissingHandler(TranslocoErrorOnMissingHandler),
-        provideTranslocoLoadingTpl(options?.loadingTemplate ?? '…'),
         provideTranslocoLocale(),
         provideTranslocoConfig(
             createTranslocoConfigWithDefault(
