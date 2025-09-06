@@ -1,6 +1,7 @@
 import {ChangeDetectionStrategy, Component} from '@angular/core';
 import {provideTranslocoScope, TranslocoDirective} from '@jsverse/transloco';
 import {AnimateOnScrollDirective} from '../../shared/ui/animate-on-scroll/animate-on-scroll.directive';
+import {HeaderContentSpacerComponent} from '../../shared/ui/header-content-spacer/header-content-spacer.component';
 import {HeadingWithDotComponent} from '../../shared/ui/heading-with-dot/heading-with-dot.component';
 import {TextObfuscationComponent} from '../../shared/ui/text-obfuscation/text-obfuscation.component';
 import {UmamiTrackEventDirective} from '../../shared/ui/umami-track-event/umami-track-event.directive';
@@ -19,6 +20,7 @@ const privacyPolicyTranslocoScope = {
     changeDetection: ChangeDetectionStrategy.OnPush,
     imports: [
         TranslocoDirective,
+        HeaderContentSpacerComponent,
         HeadingWithDotComponent,
         XorCipherPipe,
         TextObfuscationComponent,
