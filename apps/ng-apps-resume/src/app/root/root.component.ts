@@ -6,10 +6,10 @@ import {CopyrightNoticeComponent} from '../legal/ui/copyright-notice/copyright-n
 import {GitHubIconLinkComponent} from '../resume/ui/github-icon-link/github-icon-link.component';
 import {LinkedinIconLinkComponent} from '../resume/ui/linkedin-icon-link/linkedin-icon-link.component';
 import {MailIconLinkComponent} from '../resume/ui/mail-icon-link/mail-icon-link.component';
-import {FooterContainerComponent} from '../shared/ui/footer-container/footer-container.component';
-import {HeaderContainerComponent} from '../shared/ui/header-container/header-container.component';
 import {LogoTitleComponent} from '../shared/ui/logo-title/logo-title.component';
 import {RouteFragmentLinksComponent} from '../shared/ui/route-fragment-links/route-fragment-links.component';
+import {StripesBackgroundComponent} from '../shared/ui/stripes-background/stripes-background.component';
+import {StripesHeaderBackgroundComponent} from '../shared/ui/stripes-header-background/stripes-header-background.component';
 import {UmamiOptOutDirective} from '../shared/ui/umami-opt-out/umami-opt-out.directive';
 import {UmamiTrackEventDirective} from '../shared/ui/umami-track-event/umami-track-event.directive';
 import {provideNavigation} from '../shared/util/navigation/provider';
@@ -34,10 +34,10 @@ const globalTranslocoScope = {
         RouterLink,
         RouterLinkActive,
 
-        HeaderContainerComponent,
+        StripesHeaderBackgroundComponent,
         LogoTitleComponent,
         RouteFragmentLinksComponent,
-        FooterContainerComponent,
+        StripesBackgroundComponent,
         LinkedinIconLinkComponent,
         GitHubIconLinkComponent,
         CopyrightNoticeComponent,
