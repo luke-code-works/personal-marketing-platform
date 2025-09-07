@@ -18,7 +18,7 @@ import {Locale} from '../shared/util/transloco/locale';
 import {createTranslocoInlineLoader} from '../shared/util/transloco/transloco-inline-loader-factory';
 import {XorCipherPipe} from '../shared/util/xor-cipher/xor-cipher.pipe';
 
-export const globalTranslocoScope = {
+const globalTranslocoScope = {
     scope: 'global',
     loader: createTranslocoInlineLoader((locale: Locale) => import(`../../i18n/${locale}.json`), ['en-US', 'de-DE']),
 };
