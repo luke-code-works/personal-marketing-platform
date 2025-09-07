@@ -1,0 +1,6 @@
+@reference "tailwindcss";
+
+:host {
+    @apply block;
+    @apply bg-[var(--app-footer-bg-color)];
+}

@@ -1,0 +1,63 @@
+<app-stripes-bottom-right-background *transloco="let t; prefix: 'global'">
+    <nav
+        class="flex flex-wrap justify-center gap-6 mt-24 lg:mt-36 mx-2 text-sm select-none"
+        [attr.aria-label]="t('footer.navigation.label')">
+        <a
+            class="menu-link"
+            [routerLink]="[defaultRedirectPath]"
+            [routerLinkActive]="['active']">
+            {{ t("footer.navigation.back-to-home") }}
+        </a>
+        <a
+            class="menu-link"
+            [routerLink]="['legal', 'legal-notice']"
+            [routerLinkActive]="['active']">
+            {{ t("footer.navigation.legal-notice") }}
+        </a>
+        <a
+            class="menu-link"
+            [routerLink]="['legal', 'privacy-policy']"
+            [routerLinkActive]="['active']">
+            {{ t("footer.navigation.privacy-policy") }}
+        </a>
+        @let localeTranslation =
+            t(
+                translocoService.getActiveLang() === "en-US"
+                    ? "footer.navigation.locale-de"
+                    : "footer.navigation.locale-en"
+            );
+        <button
+            class="menu-link cursor-pointer"
+            type="button"
+            [title]="localeTranslation"
+            (click)="toggleLocale()">
+            {{ localeTranslation }}
+        </button>
+    </nav>
+    <div
+        class="mt-6 lg:mt-8 mx-2 flex justify-center gap-10"
+        role="group"
+        [attr.aria-label]="t('footer.social.label')">
+        <app-resume-mail-icon-link
+            class="w-6 h-6"
+            appUmamiTrackEvent
+            [trackEvents]="[{event: 'click', name: 'outbound-mail'}]"
+            [href]="'mailto:' + (t('footer.social.mail.link') | xorCipher)"
+            [label]="t('footer.social.mail.label')" />
+        <app-resume-linkedin-icon-link
+            class="w-6 h-6"
+            appUmamiTrackEvent
+            [trackEvents]="[{event: 'click', name: 'outbound-linkedin'}]"
+            [href]="t('footer.social.linkedin.link') | xorCipher"
+            [label]="t('footer.social.linkedin.label')" />
+        <app-resume-github-icon-link
+            class="w-6 h-6"
+            appUmamiTrackEvent
+            [trackEvents]="[{event: 'click', name: 'outbound-github'}]"
+            [href]="t('footer.social.github.link') | xorCipher"
+            [label]="t('footer.social.github.label')" />
+    </div>
+    <app-legal-copyright-notice
+        class="mt-6 lg:mt-8 mb-14 mx-2"
+        appUmamiOptOut />
+</app-stripes-bottom-right-background>
