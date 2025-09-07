@@ -19,13 +19,15 @@ const privacyPolicyTranslocoScope = {
     styleUrl: './privacy-policy.component.scss',
     changeDetection: ChangeDetectionStrategy.OnPush,
     imports: [
+        AnimateOnScrollDirective,
         TranslocoDirective,
+        UmamiTrackEventDirective,
+
         HeaderContentSpacerComponent,
         HeadingWithDotComponent,
-        XorCipherPipe,
         TextObfuscationComponent,
-        AnimateOnScrollDirective,
-        UmamiTrackEventDirective,
+
+        XorCipherPipe,
     ],
     providers: [provideTranslocoScope(privacyPolicyTranslocoScope)],
 })

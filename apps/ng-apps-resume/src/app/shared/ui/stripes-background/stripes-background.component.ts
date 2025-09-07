@@ -2,9 +2,9 @@ import {ChangeDetectionStrategy, Component} from '@angular/core';
 
 @Component({
     // eslint-disable-next-line @angular-eslint/component-selector
-    selector: 'header[app-header-container]',
-    templateUrl: './header-container.component.html',
-    styleUrl: './header-container.component.scss',
+    selector: '[app-stripes-background]',
+    templateUrl: './stripes-background.component.html',
+    styleUrl: './stripes-background.component.scss',
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class HeaderContainerComponent {}
+export class StripesBackgroundComponent {}

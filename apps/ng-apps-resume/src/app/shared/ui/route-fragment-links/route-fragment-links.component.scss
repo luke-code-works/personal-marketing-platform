@@ -1,5 +1,5 @@
-:host {
-    @reference "tailwindcss";
+@reference "tailwindcss";
 
+:host {
     @apply flex items-center gap-2;
 }

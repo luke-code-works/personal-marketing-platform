@@ -1,5 +1,4 @@
 import {Component} from '@angular/core';
-import {MatIconModule} from '@angular/material/icon';
 import {provideTranslocoScope, translateSignal, TranslocoDirective} from '@jsverse/transloco';
 import {rxEffect} from 'ngxtension/rx-effect';
 import {of} from 'rxjs';
@@ -17,13 +16,7 @@ const profileTranslocoScope = {
 @Component({
     selector: 'app-resume-profile',
     templateUrl: './profile.component.html',
-    imports: [
-        MatIconModule,
-        TranslocoDirective,
-        ProfileCoverComponent,
-        HeadingWithDotComponent,
-        AnimateOnScrollDirective,
-    ],
+    imports: [AnimateOnScrollDirective, TranslocoDirective, HeadingWithDotComponent, ProfileCoverComponent],
     providers: [provideTranslocoScope(profileTranslocoScope)],
 })
 export class ProfileComponent {

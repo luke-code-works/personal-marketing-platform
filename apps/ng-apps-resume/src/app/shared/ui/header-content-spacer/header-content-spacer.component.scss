@@ -1,5 +1,5 @@
-:host {
-    @reference "tailwindcss";
+@reference "tailwindcss";
 
+:host {
     @apply block w-full h-16;
 }

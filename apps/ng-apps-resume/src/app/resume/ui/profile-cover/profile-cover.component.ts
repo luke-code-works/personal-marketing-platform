@@ -12,12 +12,14 @@ import {SparklingStarsParticleBackgroundComponent} from '../../../shared/ui/spar
     styleUrl: './profile-cover.component.scss',
     changeDetection: ChangeDetectionStrategy.OnPush,
     imports: [
-        SparklingStarsParticleBackgroundComponent,
-        HeaderContentSpacerComponent,
-        HeadingWithDotComponent,
-        MatIconModule,
-        TranslocoDirective,
         AnimateOnScrollDirective,
+        TranslocoDirective,
+
+        HeadingWithDotComponent,
+        HeaderContentSpacerComponent,
+        SparklingStarsParticleBackgroundComponent,
+
+        MatIconModule,
     ],
 })
 export class ProfileCoverComponent {}

@@ -1,6 +1,6 @@
-:host {
-    @reference "tailwindcss";
+@reference "tailwindcss";
 
+:host {
     @apply block;
     @apply bg-[var(--app-legal-notice-bg-color)];
     @apply select-none;
