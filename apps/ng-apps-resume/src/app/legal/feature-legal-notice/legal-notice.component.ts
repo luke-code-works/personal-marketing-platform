@@ -19,13 +19,15 @@ const legalNoticeTranslocoScope = {
     styleUrl: './legal-notice.component.scss',
     changeDetection: ChangeDetectionStrategy.OnPush,
     imports: [
+        AnimateOnScrollDirective,
         TranslocoDirective,
+        UmamiTrackEventDirective,
+
         HeaderContentSpacerComponent,
         HeadingWithDotComponent,
-        XorCipherPipe,
         TextObfuscationComponent,
-        AnimateOnScrollDirective,
-        UmamiTrackEventDirective,
+
+        XorCipherPipe,
     ],
     providers: [provideTranslocoScope(legalNoticeTranslocoScope)],
 })
