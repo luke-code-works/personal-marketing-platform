@@ -4,18 +4,21 @@
         [attr.aria-label]="t('footer.navigation.label')">
         <a
             class="menu-link"
+            [title]="t('footer.navigation.back-to-home')"
             [routerLink]="[defaultRedirectPath]"
             [routerLinkActive]="['active']">
             {{ t("footer.navigation.back-to-home") }}
         </a>
         <a
             class="menu-link"
+            [title]="t('footer.navigation.legal-notice')"
             [routerLink]="['legal', 'legal-notice']"
             [routerLinkActive]="['active']">
             {{ t("footer.navigation.legal-notice") }}
         </a>
         <a
             class="menu-link"
+            [title]="t('footer.navigation.privacy-policy')"
             [routerLink]="['legal', 'privacy-policy']"
             [routerLinkActive]="['active']">
             {{ t("footer.navigation.privacy-policy") }}
