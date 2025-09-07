@@ -1,7 +1,7 @@
 import {Component, inject} from '@angular/core';
 import {RouterLink, RouterLinkActive, RouterOutlet} from '@angular/router';
 import {provideTranslocoScope, TranslocoDirective, TranslocoService} from '@jsverse/transloco';
-import {appRoutes} from '../app.routes';
+import {APP_ROUTES} from '../app.routes';
 import {CopyrightNoticeComponent} from '../legal/ui/copyright-notice/copyright-notice.component';
 import {GitHubIconLinkComponent} from '../resume/ui/github-icon-link/github-icon-link.component';
 import {LinkedinIconLinkComponent} from '../resume/ui/linkedin-icon-link/linkedin-icon-link.component';
@@ -52,7 +52,7 @@ export class RootComponent {
     protected translocoService = inject(TranslocoService);
 
     protected readonly defaultRedirectPath =
-        appRoutes.find((route) => route.path === '' && route.redirectTo != null)?.redirectTo ?? '';
+        APP_ROUTES.find((route) => route.path === '' && route.redirectTo != null)?.redirectTo ?? '';
 
     protected toggleLocale() {
         const currentLang = this.translocoService.getActiveLang();

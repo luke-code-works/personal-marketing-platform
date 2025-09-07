@@ -1,7 +1,7 @@
 import {provideHttpClient} from '@angular/common/http';
 import {ApplicationConfig, provideZoneChangeDetection} from '@angular/core';
 import {provideRouter, withInMemoryScrolling} from '@angular/router';
-import {appRoutes} from './app.routes';
+import {APP_ROUTES} from './app.routes';
 import {provideMaterialSymbols} from './shared/util/material-symbols/provider';
 import {provideI18nUsingTransloco} from './shared/util/transloco/providers';
 import {trustScriptUrlByOrigins} from './shared/util/trusted-types/functions';
@@ -13,7 +13,7 @@ export const appConfig: ApplicationConfig = {
     providers: [
         provideZoneChangeDetection({eventCoalescing: true}),
         provideRouter(
-            appRoutes,
+            APP_ROUTES,
             withInMemoryScrolling({anchorScrolling: 'enabled', scrollPositionRestoration: 'enabled'}),
         ),
         provideHttpClient(),
