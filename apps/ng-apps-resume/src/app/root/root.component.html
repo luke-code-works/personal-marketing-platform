@@ -1,14 +1,16 @@
 <header
-    class="col-start-1 row-start-1"
+    class="col-start-1 row-start-1 sticky top-0 z-10 h-16 backdrop-blur-xl bg-[var(--app-header-bg-color)]"
     aria-label="navigation"
-    app-stripes-header-background>
-    <app-logo-title
-        class="ml-20"
-        [title]="'120603001c4f010717' | xorCipher" />
-    <div class="flex-grow"></div>
-    <nav>
-        <app-route-fragment-links class="max-lg:!hidden mx-8" />
-    </nav>
+    app-stripes-top-left-background>
+    <div class="flex items-center justify-between h-full">
+        <app-logo-title
+            class="ml-20"
+            [title]="'120603001c4f010717' | xorCipher" />
+        <div class="flex-grow"></div>
+        <nav>
+            <app-route-fragment-links class="max-lg:!hidden mx-8" />
+        </nav>
+    </div>
 </header>
 <main
     class="col-start-1 row-start-1"
@@ -17,8 +19,8 @@
 </main>
 <footer
     *transloco="let t; prefix: 'global'"
-    class="col-start-1 row-start-2"
-    app-stripes-background>
+    class="col-start-1 row-start-2 bg-[var(--app-footer-bg-color)]"
+    app-stripes-bottom-right-background>
     <nav
         class="flex flex-wrap justify-center gap-6 mt-24 lg:mt-36 mx-2 text-sm select-none"
         [attr.aria-label]="t('footer.navigation.label')">

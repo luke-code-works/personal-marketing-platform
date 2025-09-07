@@ -85,8 +85,9 @@
     // TODO: Use or remove #0f1924;
     --root-bg-color: #0f002e;
 
-    --app-stripes-header-background-color: color-mix(in oklab, #0f002e 65%, transparent);
-    --app-stripes-header-background-line-color: #4a00de; // almost indigo-700
+    --app-header-bg-color: color-mix(in oklab, #0f002e 65%, transparent);
+
+    --app-stripes-top-left-background-line-color: #4a00de; // almost indigo-700
 
     --app-logo-title-line-color: #4a00de; // almost indigo-700
 
@@ -94,8 +95,8 @@
     --app-route-fragment-links-hover-color: #fff;
     --app-route-fragment-links-active-color: #fff;
 
-    --app-stripes-background-bg-color: transparent;
-    --app-stripes-background-line-color: #4a00de; // almost indigo-700
+    --app-footer-bg-color: transparent;
+    --app-stripes-bottom-right-background-line-color: #4a00de; // almost indigo-700
 
     --app-legal-notice-bg-color: #0f002e;
     --app-legal-privacy-policy-bg-color: #0f002e;

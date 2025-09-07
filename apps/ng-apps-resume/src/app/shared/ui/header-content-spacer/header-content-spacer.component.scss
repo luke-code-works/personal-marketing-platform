@@ -1,5 +1,6 @@
 @reference "tailwindcss";
 
 :host {
-    @apply block w-full h-16;
+    @apply block;
+    @apply h-16;
 }

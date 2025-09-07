@@ -8,8 +8,7 @@ import {LinkedinIconLinkComponent} from '../resume/ui/linkedin-icon-link/linkedi
 import {MailIconLinkComponent} from '../resume/ui/mail-icon-link/mail-icon-link.component';
 import {LogoTitleComponent} from '../shared/ui/logo-title/logo-title.component';
 import {RouteFragmentLinksComponent} from '../shared/ui/route-fragment-links/route-fragment-links.component';
-import {StripesBackgroundComponent} from '../shared/ui/stripes-background/stripes-background.component';
-import {StripesHeaderBackgroundComponent} from '../shared/ui/stripes-header-background/stripes-header-background.component';
+import {StripesBottomRightBackgroundComponent} from '../shared/ui/stripes-bottom-right-background/stripes-bottom-right-background.component';
 import {UmamiOptOutDirective} from '../shared/ui/umami-opt-out/umami-opt-out.directive';
 import {UmamiTrackEventDirective} from '../shared/ui/umami-track-event/umami-track-event.directive';
 import {provideNavigation} from '../shared/util/navigation/provider';
@@ -17,6 +16,7 @@ import {withRouteFragmentNavigation} from '../shared/util/route-fragment-navigat
 import {Locale} from '../shared/util/transloco/locale';
 import {createTranslocoInlineLoader} from '../shared/util/transloco/transloco-inline-loader-factory';
 import {XorCipherPipe} from '../shared/util/xor-cipher/xor-cipher.pipe';
+import { StripesTopLeftBackgroundComponent } from '../shared/ui/stripes-top-left-background/stripes-top-left-background.component';
 
 const globalTranslocoScope = {
     scope: 'global',
@@ -34,10 +34,10 @@ const globalTranslocoScope = {
         RouterLink,
         RouterLinkActive,
 
-        StripesHeaderBackgroundComponent,
+        StripesTopLeftBackgroundComponent,
         LogoTitleComponent,
         RouteFragmentLinksComponent,
-        StripesBackgroundComponent,
+        StripesBottomRightBackgroundComponent,
         LinkedinIconLinkComponent,
         GitHubIconLinkComponent,
         CopyrightNoticeComponent,
