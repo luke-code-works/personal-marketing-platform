@@ -1,9 +1,0 @@
-@reference "tailwindcss";
-
-:host {
-    @apply grid grid-cols-1 grid-rows-1;
-    @apply sticky top-0 z-10;
-    @apply h-16;
-    @apply backdrop-blur-xl;
-    @apply bg-[var(--app-stripes-header-background-color)];
-}
