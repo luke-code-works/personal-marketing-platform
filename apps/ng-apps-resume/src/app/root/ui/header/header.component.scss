@@ -1,0 +1,7 @@
+@reference "tailwindcss";
+
+:host {
+    @apply block;
+
+    @apply sticky top-0 z-10 h-16 backdrop-blur-xl bg-[var(--app-header-bg-color)];
+}
