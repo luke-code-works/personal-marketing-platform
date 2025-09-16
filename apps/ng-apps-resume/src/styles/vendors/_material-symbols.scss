@@ -1,0 +1,5 @@
+@use 'sass:meta';
+
+@mixin all() {
+    @include meta.load-css('material-symbols/index');
+}

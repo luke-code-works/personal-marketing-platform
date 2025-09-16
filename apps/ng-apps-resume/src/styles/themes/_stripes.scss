@@ -1,0 +1,55 @@
+@use '../vendors/angular-material' as angular-material;
+@use 'stripes-angular-material' as stripes-angular-material;
+
+@mixin dark-theme {
+    .dark-scheme {
+        --link-color: #c6d2ff; // indigo-200
+        --link-hover-color: #c6d2ff; // indigo-200
+        --link-hover-underline-color: #4a00de;
+        --link-active-color: #c6d2ff; // indigo-200
+        --link-active-underline-color: #4a00de;
+
+        --menu-link-color: #fff;
+        --menu-link-hover-color: #fff;
+        --menu-link-active-color: #fff;
+
+        --icon-link-color: #fff;
+        --icon-link-hover-color: #4a00de;
+        --icon-link-active-color: #4a00de;
+
+        --app-heading-with-dot-font: Outfit;
+        --app-heading-with-dot-color: #fff; // indigo-200
+        --app-heading-with-dot-dot-color: #4a00de;
+
+        // TODO: Use or remove #0f1924;
+        --root-bg-color: #0f002e;
+
+        --app-header-bg-color: color-mix(in oklab, #0f002e 65%, transparent);
+
+        --app-stripes-top-left-background-line-color: #4a00de; // almost indigo-700
+
+        --app-logo-title-line-color: #4a00de; // almost indigo-700
+
+        --app-route-fragment-links-color: #fff;
+        --app-route-fragment-links-hover-color: #fff;
+        --app-route-fragment-links-active-color: #fff;
+
+        --app-footer-bg-color: transparent;
+        --app-stripes-bottom-right-background-line-color: #4a00de; // almost indigo-700
+
+        --app-legal-notice-bg-color: #0f002e;
+        --app-legal-privacy-policy-bg-color: #0f002e;
+        --app-legal-copyright-notice-color: #fff;
+
+        @include angular-material.theme(
+            (
+                color: (
+                    primary: stripes-angular-material.$primary-palette,
+                    theme-type: dark,
+                ),
+                typography: Open Sans,
+                density: 0,
+            )
+        );
+    }
+}
