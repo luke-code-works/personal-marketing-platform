@@ -1,0 +1,9 @@
+@mixin color-schemes {
+    .light-scheme {
+        color-scheme: light;
+    }
+
+    .dark-scheme {
+        color-scheme: dark;
+    }
+}

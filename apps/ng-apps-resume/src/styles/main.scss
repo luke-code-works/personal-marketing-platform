@@ -1,184 +1,44 @@
-@use 'tailwindcss';
-@use '@angular/material' as mat;
 @use 'sass:meta';
+@use 'vendors/tailwind' as tailwind;
+@use 'vendors/material-symbols' as material-symbols;
+@use 'reset/excludes' as excludes;
+@use 'base/defaults' as defaults;
+@use 'base/typography' as typography;
+@use 'base/color-schemes' as color-schemes;
+@use 'components/links' as links;
+@use 'themes/stripes' as stripes;
 
-@mixin height-defaults {
-    html {
-        height: 100%;
-    }
-    body {
-        min-height: 100%;
-    }
-}
-
-@mixin scrolling-defaults {
-    html {
-        scroll-behavior: smooth;
-    }
-}
-
-@mixin links {
-    .link {
-        @apply text-[var(--link-color)];
-        @apply underline underline-offset-[6px] decoration-transparent;
-
-        @apply transition-colors duration-200 ease-in;
-        transition: text-decoration-color 200ms ease-in;
-
-        &:hover {
-            @apply text-[var(--link-hover-color)];
-            text-decoration-color: var(--link-hover-underline-color);
-        }
-
-        &.active {
-            @apply text-[var(--link-active-color)];
-            text-decoration-color: var(--link-active-underline-color);
-        }
-    }
-
-    .menu-link {
-        @extend .link;
-        @apply text-[var(--menu-link-color)];
-
-        &:hover {
-            @apply text-[var(--menu-link-hover-color)];
-        }
-
-        &.active {
-            @apply text-[var(--menu-link-active-color)];
-        }
-    }
-
-    .icon-link {
-        @apply text-[var(--icon-link-color)];
-        @apply transition-colors duration-200 ease-in;
-
-        &:hover {
-            @apply text-[var(--icon-link-hover-color)];
-        }
-
-        &.active {
-            @apply text-[var(--icon-link-active-color)];
-        }
-    }
-}
-
-.dark-scheme {
-    --link-color: #c6d2ff; // indigo-200
-    --link-hover-color: #c6d2ff; // indigo-200
-    --link-hover-underline-color: #4a00de;
-    --link-active-color: #c6d2ff; // indigo-200
-    --link-active-underline-color: #4a00de;
-
-    --menu-link-color: #fff;
-    --menu-link-hover-color: #fff;
-    --menu-link-active-color: #fff;
-
-    --icon-link-color: #fff;
-    --icon-link-hover-color: #4a00de;
-    --icon-link-active-color: #4a00de;
-
-    --app-heading-with-dot-font: Outfit;
-    --app-heading-with-dot-color: #fff; // indigo-200
-    --app-heading-with-dot-dot-color: #4a00de;
-
-    // TODO: Use or remove #0f1924;
-    --root-bg-color: #0f002e;
-
-    --app-header-bg-color: color-mix(in oklab, #0f002e 65%, transparent);
-
-    --app-stripes-top-left-background-line-color: #4a00de; // almost indigo-700
-
-    --app-logo-title-line-color: #4a00de; // almost indigo-700
-
-    --app-route-fragment-links-color: #fff;
-    --app-route-fragment-links-hover-color: #fff;
-    --app-route-fragment-links-active-color: #fff;
-
-    --app-footer-bg-color: transparent;
-    --app-stripes-bottom-right-background-line-color: #4a00de; // almost indigo-700
-
-    --app-legal-notice-bg-color: #0f002e;
-    --app-legal-privacy-policy-bg-color: #0f002e;
-    --app-legal-copyright-notice-color: #fff;
-}
-
-@mixin color-scheme-styles {
-    .dark-scheme {
-        color-scheme: dark;
-    }
-
-    .light-scheme {
-        color-scheme: light;
-    }
-}
-
-@mixin material-theme-styles {
-    :root {
-        @include mat.theme(
-            (
-                color: mat.$spring-green-palette,
-                typography: Roboto,
-                density: 0,
-            )
-        );
-    }
-}
-
-@mixin open-sans-font() {
-    @font-face {
-        font-style: normal;
-        font-weight: 100 900;
-        src: url('/fonts/open-sans-variablefont.ttf') format('truetype');
-        font-family: 'Open Sans';
-        font-display: swap;
-    }
-
-    @font-face {
-        font-style: italic;
-        font-weight: 100 900;
-        src: url('/fonts/open-sans-italic-variablefont.ttf') format('truetype');
-        font-family: 'Open Sans';
-        font-display: swap;
-    }
-}
-
-@mixin outfit-font() {
-    @font-face {
-        font-style: normal;
-        font-weight: 100 900;
-        src: url('/fonts/outfit-variablefont.ttf') format('truetype');
-        font-family: 'Outfit';
-        font-display: swap;
-    }
-}
-
-@mixin font-defaults() {
-    body {
-        @apply leading-normal;
-        font-size: clamp(1rem, 1.5vw, 1.125rem);
-        font-family: 'Open Sans', sans-serif;
-    }
-}
-
-@mixin material-symbols() {
-    @include meta.load-css('node_modules/material-symbols');
-}
+@layer theme, reset, base, components, utilities;
 
 @layer theme {
-    @include material-theme-styles();
-    @include open-sans-font();
-    @include outfit-font();
-    @include material-symbols();
+    @include tailwind.theme();
+    @include stripes.dark-theme();
+
+    @include typography.open-sans();
+    @include typography.outfit();
+}
+
+@layer reset {
+    @include tailwind.preflight();
+    @include excludes.exclude-angular-material();
 }
 
 @layer base {
-    @include height-defaults();
-    @include scrolling-defaults();
-    @include font-defaults();
-    @include color-scheme-styles();
+    @include color-schemes.color-schemes();
+
+    @include defaults.full-height();
+    @include defaults.smooth-scroll();
+    @include defaults.text-open-sans();
 }
 
 @layer components {
-    @include links();
+    @include material-symbols.all();
+
+    @include links.link();
+    @include links.menu-link();
+    @include links.icon-link();
+}
+
+@layer utilities {
+    @include tailwind.utilities();
 }

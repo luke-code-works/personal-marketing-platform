@@ -1,0 +1,13 @@
+@use 'sass:meta';
+
+@mixin preflight() {
+    @include meta.load-css('tailwindcss/preflight.css');
+}
+
+@mixin theme() {
+    @include meta.load-css('tailwindcss/theme.css');
+}
+
+@mixin utilities() {
+    @include meta.load-css('tailwindcss/utilities.css');
+}

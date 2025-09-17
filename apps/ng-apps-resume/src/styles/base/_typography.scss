@@ -1,0 +1,27 @@
+@mixin open-sans() {
+    @font-face {
+        font-style: normal;
+        font-weight: 100 900;
+        src: url('/fonts/open-sans-variablefont.ttf') format('truetype');
+        font-family: 'Open Sans';
+        font-display: swap;
+    }
+
+    @font-face {
+        font-style: italic;
+        font-weight: 100 900;
+        src: url('/fonts/open-sans-italic-variablefont.ttf') format('truetype');
+        font-family: 'Open Sans';
+        font-display: swap;
+    }
+}
+
+@mixin outfit() {
+    @font-face {
+        font-style: normal;
+        font-weight: 100 900;
+        src: url('/fonts/outfit-variablefont.ttf') format('truetype');
+        font-family: 'Outfit';
+        font-display: swap;
+    }
+}

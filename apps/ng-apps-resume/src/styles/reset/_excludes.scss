@@ -1,0 +1,8 @@
+@mixin exclude-angular-material() {
+    [class^='mat-mdc-'],
+    [class*=' mat-mdc-'],
+    [class^='mdc-'],
+    [class*=' mdc-'] {
+        all: revert-layer;
+    }
+}
