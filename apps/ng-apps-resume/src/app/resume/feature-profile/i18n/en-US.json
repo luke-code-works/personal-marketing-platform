@@ -8,42 +8,44 @@
         "greeting": "Hi, I'm",
         "name": "Lukas",
         "profession": "Business Informatics professional",
-        "work": "Previously employed at KEYElements GmbH",
+        "work": "Currently employed at INspares GmbH",
         "location": "Originally from and living in Tönisvorst, Germany",
         "marital-status": "Happily married",
         "hobbies": "Hobbies include swimming and firefighting"
     },
     "tech-stack": {
         "title": "Tech Stack",
-        "item1": "Angular",
-        "item2": "PostgresSQL",
-        "item3": "GitLab CI/CD",
-        "item4": "Git",
-        "item5": "VS Code",
-        "item6": "TypeScript",
-        "item7": "JavaScript",
-        "item8": "NestJs",
-        "item9": "CSS",
-        "item10": "HTML",
-        "item11": "Sass",
-        "item12": "Node.js",
-        "item13": "TailwindCSS",
-        "item14": "Docker",
-        "item15": "Webpack",
-        "item16": ".NET Framework / Core C#",
-        "item17": ".NET Framework Visual Basic",
-        "item18": "Java"
+        "item1": "Kubernetes",
+        "item2": "Docker",
+        "item3": "Angular",
+        "item4": "PostgresSQL",
+        "item5": "GitLab CI/CD",
+        "item6": "Git",
+        "item7": "VS Code",
+        "item8": "TypeScript",
+        "item9": "JavaScript",
+        "item10": "NestJs",
+        "item11": "CSS",
+        "item12": "HTML",
+        "item13": "Sass",
+        "item14": "Node.js",
+        "item15": "TailwindCSS",
+        "item16": "Webpack",
+        "item17": ".NET Framework / Core C#",
+        "item18": ".NET Framework Visual Basic",
+        "item19": "Java"
     },
     "agile-and-project": {
         "title": "Agile & Project",
         "item1": "Kanban",
         "item2": "Scrum",
-        "item3": "SAFe 5 Agilist"
+        "item3": "SAFe 5 Agilist",
+        "item4": "Traditional project management"
     },
     "education-and-career": {
         "title": "Education & Career",
         "text1": "After completing my vocational diploma with a focus on electrical engineering, I studied business informatics.",
-        "text2": "My professional career began with the functional support of software for designing target architectures. Later, I worked as a developer and consultant, focussing on the development of applications for managing key figures and reports for large enterprises. During this time, I gained extensive experience, particularly with technologies such as TypeScript, Angular and NestJS. Additionally, I am a certified safety officer.",
-        "text3": "I have a strong interest in developing innovative und sustainable software solutions that strategically support businesses and create lasting value."
+        "text2": "My professional career began with the functional support of software for designing target architectures. Later, I worked as a developer and consultant, focussing on the development of applications for managing key figures and reports for large enterprises. During this time, I gained extensive experience, particularly with technologies such as TypeScript, Angular and NestJS. Currently, I mainly focus on the design and operation of applications, particularly in Kubernetes environments. Additionally, I am a certified safety officer.",
+        "text3": "I have a strong interest in developing and operating innovative and sustainable software solutions that strategically support businesses and create lasting value."
     }
 }
