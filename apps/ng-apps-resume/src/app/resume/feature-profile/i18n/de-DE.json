@@ -8,42 +8,44 @@
         "greeting": "Hi, ich bin",
         "name": "Lukas",
         "profession": "Wirtschaftsinformatiker",
-        "work": "Zuletzt tätig bei KEYElements GmbH",
+        "work": "Aktuell tätig bei INspares GmbH",
         "location": "Gebürtig aus und wohnhaft in Tönisvorst, Deutschland",
         "marital-status": "Glücklich verheiratet",
         "hobbies": "Hobbys: Schwimmen und Feuerwehr"
     },
     "tech-stack": {
         "title": "Technologie-Stack",
-        "item1": "Angular",
-        "item2": "PostgresSQL",
-        "item3": "GitLab CI/CD",
-        "item4": "Git",
-        "item5": "VS Code",
-        "item6": "TypeScript",
-        "item7": "JavaScript",
-        "item8": "NestJs",
-        "item9": "CSS",
-        "item10": "HTML",
-        "item11": "Sass",
-        "item12": "Node.js",
-        "item13": "TailwindCSS",
-        "item14": "Docker",
-        "item15": "Webpack",
-        "item16": ".NET Framework / Core C#",
-        "item17": ".NET Framework Visual Basic",
-        "item18": "Java"
+        "item1": "Kubernetes",
+        "item2": "Docker",
+        "item3": "Angular",
+        "item4": "PostgresSQL",
+        "item5": "GitLab CI/CD",
+        "item6": "Git",
+        "item7": "VS Code",
+        "item8": "TypeScript",
+        "item9": "JavaScript",
+        "item10": "NestJs",
+        "item11": "CSS",
+        "item12": "HTML",
+        "item13": "Sass",
+        "item14": "Node.js",
+        "item15": "TailwindCSS",
+        "item16": "Webpack",
+        "item17": ".NET Framework / Core C#",
+        "item18": ".NET Framework Visual Basic",
+        "item19": "Java"
     },
     "agile-and-project": {
         "title": "Agil & Projekt",
         "item1": "Kanban",
         "item2": "Scrum",
-        "item3": "SAFe 5 Agilist"
+        "item3": "SAFe 5 Agilist",
+        "item4": "Klassisches Projektmanagement"
     },
     "education-and-career": {
         "title": "Bildung & Beruf",
         "text1": "Nach meinem Fachabitur mit Schwerpunkt Elektrotechnik habe ich Wirtschaftsinformatik studiert.",
-        "text2": "Meine berufliche Laufbahn begann im funktionalen Support von Software zur Planung von Zielarchitekturen. Später war ich als Entwickler und Berater tätig, mit Fokus auf die Entwicklung von Anwendungen zur Verwaltung von Kennzahlen und Berichten für Großunternehmen. In dieser Zeit konnte ich umfassende Erfahrungen sammeln, insbesondere mit Technologien wie TypeScript, Angular und NestJS. Zusätzlich bin ich zertifizierte Sicherheitsfachkraft.",
-        "text3": "Ich habe ein starkes Interesse an der Entwicklung innovativer und nachhaltiger Softwarelösungen, die Unternehmen strategisch unterstützen und nachhaltigen Mehrwert schaffen."
+        "text2": "Meine berufliche Laufbahn begann im funktionalen Support von Software zur Planung von Zielarchitekturen. Später war ich als Entwickler und Berater tätig, mit Fokus auf die Entwicklung von Anwendungen zur Verwaltung von Kennzahlen und Berichten für Großunternehmen. In dieser Zeit konnte ich umfassende Erfahrungen sammeln, insbesondere mit Technologien wie TypeScript, Angular und NestJS. Aktuell beschäftige ich mich hauptsächlich mit der Konzeption und dem Betrieb von Anwendungen, insbesondere im Kubernetes-Umfeld. Zusätzlich bin ich zertifizierte Sicherheitsfachkraft.",
+        "text3": "Ich habe ein starkes Interesse an der Entwicklung und dem Betrieb innovativer und nachhaltiger Softwarelösungen, die Unternehmen strategisch unterstützen und nachhaltigen Mehrwert schaffen."
     }
 }
